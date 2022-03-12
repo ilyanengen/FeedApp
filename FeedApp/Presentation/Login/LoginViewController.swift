@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     
+    private let authService = ServiceLayer.shared.authService
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signInButtonDidTap(_ sender: UIButton) {
+        // TODO: validate textfields here
+        guard
+            let username = usernameTextField.text,
+            let password = passwordTextField.text
+        else {
+            return
+        }
+        authService.signIn(
+            username: username,
+            password: password
+        ) { [weak self] error in
+            DispatchQueue.main.async {
+                print(error)
+            }
+        }
     }
 }
 

@@ -17,6 +17,11 @@
 		09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BF027DCFE9E00E8F7E6 /* LoginViewController.swift */; };
 		09275BF327DCFE9E00E8F7E6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09275BF127DCFE9E00E8F7E6 /* LoginViewController.xib */; };
 		09275BF827DD08AF00E8F7E6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BF727DD08AF00E8F7E6 /* UIViewController+Extensions.swift */; };
+		09275BFA27DD27B800E8F7E6 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */; };
+		09275BFC27DD27C800E8F7E6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BFB27DD27C800E8F7E6 /* AuthService.swift */; };
+		09275BFE27DD29B900E8F7E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BFD27DD29B900E8F7E6 /* Constants.swift */; };
+		09275C0127DD3CFA00E8F7E6 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */; };
+		09275C0327DD3D1800E8F7E6 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275C0227DD3D1800E8F7E6 /* AuthError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		09275BF027DCFE9E00E8F7E6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		09275BF127DCFE9E00E8F7E6 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		09275BF727DD08AF00E8F7E6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		09275BFB27DD27C800E8F7E6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		09275BFD27DD29B900E8F7E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		09275C0227DD3D1800E8F7E6 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +169,8 @@
 		09275BE927DCFAB600E8F7E6 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */,
+				09275BFF27DD3CE300E8F7E6 /* Auth */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -198,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				09275BF627DD089500E8F7E6 /* Extensions */,
+				09275BFD27DD29B900E8F7E6 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -208,6 +221,16 @@
 				09275BF727DD08AF00E8F7E6 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		09275BFF27DD3CE300E8F7E6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				09275BFB27DD27C800E8F7E6 /* AuthService.swift */,
+				09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */,
+				09275C0227DD3D1800E8F7E6 /* AuthError.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,9 +364,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09275BFA27DD27B800E8F7E6 /* ServiceLayer.swift in Sources */,
 				09275BF827DD08AF00E8F7E6 /* UIViewController+Extensions.swift in Sources */,
 				09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */,
+				09275BFC27DD27C800E8F7E6 /* AuthService.swift in Sources */,
+				09275BFE27DD29B900E8F7E6 /* Constants.swift in Sources */,
 				09275BEF27DCFB8E00E8F7E6 /* AppViewController.swift in Sources */,
+				09275C0327DD3D1800E8F7E6 /* AuthError.swift in Sources */,
+				09275C0127DD3CFA00E8F7E6 /* AuthResponse.swift in Sources */,
 				09275BB727DCB34500E8F7E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
