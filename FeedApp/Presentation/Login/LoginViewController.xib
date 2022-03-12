@@ -10,6 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="FeedApp" customModuleProvider="target">
             <connections>
+                <outlet property="passwordTextField" destination="5Il-mI-2cc" id="ahz-dU-abf"/>
+                <outlet property="scrollView" destination="Dl5-Vz-mJ0" id="lHI-1f-VbH"/>
+                <outlet property="signInButton" destination="0ur-9u-NUg" id="MMz-NS-ZCQ"/>
+                <outlet property="usernameTextField" destination="hcQ-PV-qqp" id="Y2W-nG-0Tw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,6 +46,9 @@
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                            <connections>
+                                                <action selector="signInButtonDidTap:" destination="-1" eventType="touchUpInside" id="pjc-7r-OPr"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
