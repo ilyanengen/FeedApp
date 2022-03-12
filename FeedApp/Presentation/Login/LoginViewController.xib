@@ -10,9 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="FeedApp" customModuleProvider="target">
             <connections>
-                <outlet property="passwordTextField" destination="FLA-dj-0kf" id="kV2-O0-MXr"/>
-                <outlet property="signInButton" destination="xTA-Pg-ICh" id="kAW-rN-DW6"/>
-                <outlet property="usernameTextField" destination="Fqu-gC-TSQ" id="Mwa-aE-JfQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,47 +18,41 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dl5-Vz-mJ0">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dl5-Vz-mJ0">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nc-5D-qAw" userLabel="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="888"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Nc-5D-qAw" userLabel="contentView">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="359"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" id="zPb-z5-7kz">
-                                    <rect key="frame" x="20" y="374" width="374" height="139"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="X8n-fN-V05">
+                                    <rect key="frame" x="20" y="200" width="374" height="139"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fqu-gC-TSQ">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-PV-qqp">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="Xlb-hO-SRi"/>
-                                            </connections>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="nickname"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLA-dj-0kf">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-mI-2cc">
                                             <rect key="frame" x="0.0" y="54" width="374" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="S9U-q5-xuG"/>
-                                            </connections>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTA-Pg-ICh">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ur-9u-NUg">
                                             <rect key="frame" x="0.0" y="108" width="374" height="31"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Sign in">
-                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <action selector="signInButtonDidTap:" destination="-1" eventType="touchUpInside" id="Rs2-QQ-lpa"/>
-                                            </connections>
+                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         </button>
                                     </subviews>
-                                    <viewLayoutGuide key="safeArea" id="G2e-el-eAQ"/>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" red="0.24313725489999999" green="0.70980392160000005" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="X8n-fN-V05" secondAttribute="trailing" constant="20" id="0bh-Nc-LIV"/>
+                                <constraint firstItem="X8n-fN-V05" firstAttribute="top" secondItem="3Nc-5D-qAw" secondAttribute="top" constant="200" id="Dhc-n5-JM0"/>
+                                <constraint firstItem="X8n-fN-V05" firstAttribute="leading" secondItem="3Nc-5D-qAw" secondAttribute="leading" constant="20" id="RrR-5a-Ty2"/>
+                                <constraint firstAttribute="bottom" secondItem="X8n-fN-V05" secondAttribute="bottom" constant="20" id="nEH-vY-3VY"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <constraints>
