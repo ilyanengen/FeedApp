@@ -16,6 +16,7 @@
 		09275BEF27DCFB8E00E8F7E6 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BEE27DCFB8E00E8F7E6 /* AppViewController.swift */; };
 		09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BF027DCFE9E00E8F7E6 /* LoginViewController.swift */; };
 		09275BF327DCFE9E00E8F7E6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09275BF127DCFE9E00E8F7E6 /* LoginViewController.xib */; };
+		09275BF827DD08AF00E8F7E6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BF727DD08AF00E8F7E6 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		09275BEE27DCFB8E00E8F7E6 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		09275BF027DCFE9E00E8F7E6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		09275BF127DCFE9E00E8F7E6 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		09275BF727DD08AF00E8F7E6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		09275BB527DCB34500E8F7E6 /* FeedApp */ = {
 			isa = PBXGroup;
 			children = (
+				09275BF527DD088300E8F7E6 /* Utilities */,
 				09275BE727DCFA7500E8F7E6 /* Application */,
 				09275BE927DCFAB600E8F7E6 /* Business Logic */,
 				09275BE627DCFA5900E8F7E6 /* Presentation */,
@@ -189,6 +192,22 @@
 			children = (
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		09275BF527DD088300E8F7E6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				09275BF627DD089500E8F7E6 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		09275BF627DD089500E8F7E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				09275BF727DD08AF00E8F7E6 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09275BF827DD08AF00E8F7E6 /* UIViewController+Extensions.swift in Sources */,
 				09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */,
 				09275BEF27DCFB8E00E8F7E6 /* AppViewController.swift in Sources */,
 				09275BB727DCB34500E8F7E6 /* AppDelegate.swift in Sources */,

@@ -24,7 +24,8 @@ class AppViewController: UIViewController {
     }
     
     private func showLogin() {
-        // TODO
+        let loginVC = LoginViewController()
+        add(loginVC)
     }
     
     private func showMain() {
