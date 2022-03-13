@@ -38,8 +38,18 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavBar()
         configureTableView()
         loadFeedItems()
+    }
+    
+    private func configureNavBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Logout",
+            style: .plain,
+            target: self,
+            action: #selector(logoutButtonDidTap)
+        )
     }
     
     private func configureTableView() {
@@ -126,6 +136,10 @@ class FeedViewController: UIViewController {
     
     @objc private func topRefreshControlDidDrag() {
         loadFeedItems()
+    }
+    
+    @objc private func logoutButtonDidTap() {
+        delegate?.feedViewControllerDidLogOut(self)
     }
 }
 
