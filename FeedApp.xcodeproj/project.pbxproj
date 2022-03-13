@@ -29,6 +29,8 @@
 		09702AAE27DE5336008692ED /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AAC27DE5336008692ED /* FeedCell.swift */; };
 		09702AAF27DE5336008692ED /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09702AAD27DE5336008692ED /* FeedCell.xib */; };
 		09702AB327DE8ABE008692ED /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB227DE8ABE008692ED /* FeedItem.swift */; };
+		09702AB527DE9E87008692ED /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB427DE9E87008692ED /* CacheService.swift */; };
+		09702AB727DEA47D008692ED /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB627DEA47D008692ED /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		09702AAC27DE5336008692ED /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		09702AAD27DE5336008692ED /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		09702AB227DE8ABE008692ED /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		09702AB427DE9E87008692ED /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
+		09702AB627DEA47D008692ED /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,11 +187,12 @@
 		09275BE927DCFAB600E8F7E6 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				09702AB027DE8A6A008692ED /* APIResponse */,
-				09275BFF27DD3CE300E8F7E6 /* Auth */,
-				09702AA727DE15DE008692ED /* Feed */,
-				09702AB127DE8A83008692ED /* Model */,
+				09275BFB27DD27C800E8F7E6 /* AuthService.swift */,
+				09702AA827DE1610008692ED /* FeedService.swift */,
 				09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */,
+				09702AB427DE9E87008692ED /* CacheService.swift */,
+				09702AB027DE8A6A008692ED /* APIResponse */,
+				09702AB127DE8A83008692ED /* Model */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -240,24 +245,9 @@
 			isa = PBXGroup;
 			children = (
 				09275BF727DD08AF00E8F7E6 /* UIViewController+Extensions.swift */,
+				09702AB627DEA47D008692ED /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		09275BFF27DD3CE300E8F7E6 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				09275BFB27DD27C800E8F7E6 /* AuthService.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		09702AA727DE15DE008692ED /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				09702AA827DE1610008692ED /* FeedService.swift */,
-			);
-			path = Feed;
 			sourceTree = "<group>";
 		};
 		09702AB027DE8A6A008692ED /* APIResponse */ = {
@@ -415,6 +405,7 @@
 				09702AAE27DE5336008692ED /* FeedCell.swift in Sources */,
 				09275BF827DD08AF00E8F7E6 /* UIViewController+Extensions.swift in Sources */,
 				09702AA427DE03A7008692ED /* FeedViewController.swift in Sources */,
+				09702AB527DE9E87008692ED /* CacheService.swift in Sources */,
 				09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */,
 				09275BFC27DD27C800E8F7E6 /* AuthService.swift in Sources */,
 				09275BFE27DD29B900E8F7E6 /* Constants.swift in Sources */,
@@ -424,6 +415,7 @@
 				09275C0327DD3D1800E8F7E6 /* APIError.swift in Sources */,
 				09275C0127DD3CFA00E8F7E6 /* AuthResponse.swift in Sources */,
 				09702AB327DE8ABE008692ED /* FeedItem.swift in Sources */,
+				09702AB727DEA47D008692ED /* UIImageView+Extensions.swift in Sources */,
 				09275BB727DCB34500E8F7E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

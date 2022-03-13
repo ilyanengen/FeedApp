@@ -29,6 +29,7 @@ class FeedViewController: UIViewController {
     init(code: Code) {
         self.code = code
         super.init(nibName: nil, bundle: nil)
+        self.title = "Feed"
     }
     
     required init?(coder: NSCoder) {
@@ -139,7 +140,6 @@ extension FeedViewController: UITableViewDelegate {
         }
     }
 }
-
 
 protocol FeedViewControllerDelegate: AnyObject {
     func feedViewControllerDidLogOut(_ viewController: FeedViewController)

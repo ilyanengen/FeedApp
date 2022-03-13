@@ -12,4 +12,5 @@ final class ServiceLayer {
     
     let authService = AuthService()
     let feedService = FeedService()
+    let cacheService = CacheService()
 }

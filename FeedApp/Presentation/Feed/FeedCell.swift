@@ -13,14 +13,10 @@ class FeedCell: UITableViewCell {
     @IBOutlet private weak var photoImageView: UIImageView!
     @IBOutlet private weak var countryLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func configure(feedItem: FeedItem) {
         nameLabel.text = feedItem.name
         countryLabel.text = feedItem.country
+        photoImageView.loadImageUsingCache(url: feedItem.imageUrl)
     }
 }
 
