@@ -144,6 +144,13 @@ class FeedViewController: UIViewController {
 }
 
 extension FeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let selectedFeedItem = dataSource.itemIdentifier(for: indexPath) else { return }
+        let mapVC = MapViewController(feedItem: selectedFeedItem)
+        navigationController?.pushViewController(mapVC, animated: true)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height

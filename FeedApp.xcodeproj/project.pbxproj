@@ -31,6 +31,8 @@
 		09702AB327DE8ABE008692ED /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB227DE8ABE008692ED /* FeedItem.swift */; };
 		09702AB527DE9E87008692ED /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB427DE9E87008692ED /* CacheService.swift */; };
 		09702AB727DEA47D008692ED /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB627DEA47D008692ED /* UIImageView+Extensions.swift */; };
+		09702ABA27DEB396008692ED /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB827DEB396008692ED /* MapViewController.swift */; };
+		09702ABB27DEB396008692ED /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09702AB927DEB396008692ED /* MapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		09702AB227DE8ABE008692ED /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		09702AB427DE9E87008692ED /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		09702AB627DEA47D008692ED /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		09702AB827DEB396008692ED /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		09702AB927DEB396008692ED /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,8 @@
 		09275BED27DCFB1500E8F7E6 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				09702AB827DEB396008692ED /* MapViewController.swift */,
+				09702AB927DEB396008692ED /* MapViewController.xib */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09275BC327DCB34600E8F7E6 /* LaunchScreen.storyboard in Resources */,
+				09702ABB27DEB396008692ED /* MapViewController.xib in Resources */,
 				09275BC027DCB34600E8F7E6 /* Assets.xcassets in Resources */,
 				09702AA527DE03A7008692ED /* FeedViewController.xib in Resources */,
 				09275BF327DCFE9E00E8F7E6 /* LoginViewController.xib in Resources */,
@@ -417,6 +424,7 @@
 				09702AB327DE8ABE008692ED /* FeedItem.swift in Sources */,
 				09702AB727DEA47D008692ED /* UIImageView+Extensions.swift in Sources */,
 				09275BB727DCB34500E8F7E6 /* AppDelegate.swift in Sources */,
+				09702ABA27DEB396008692ED /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
