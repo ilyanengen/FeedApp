@@ -8,12 +8,22 @@
 import UIKit
 
 class FeedViewController: UIViewController {
+    
+    enum Section {
+        case main
+    }
 
     weak var delegate: FeedViewControllerDelegate?
     
+    @IBOutlet private weak var tableView: UITableView!
+    
     private let feedService = ServiceLayer.shared.feedService
     
+    private lazy var dataSource = setupDataSource()
+    
     private let code: Code
+    
+    private var feetItems: [FeedItem] = []
     
     init(code: Code) {
         self.code = code
@@ -26,7 +36,44 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setInitialDataSource()
         loadFeedItems()
+    }
+    
+    private func setupDataSource() -> UITableViewDiffableDataSource<Section, FeedItem> {
+        tableView.register(FeedCell.self, forCellReuseIdentifier: FeedCell.reuseIdentifier)
+        return UITableViewDiffableDataSource<Section, FeedItem>(tableView: tableView) {
+            tableView, indexPath, feedItem -> UITableViewCell? in
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: FeedCell.reuseIdentifier,
+                for: indexPath) as? FeedCell
+            else {
+                return nil
+            }
+            cell.configure(feedItem: feedItem)
+            return cell
+        }
+    }
+    
+    private func setInitialDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, FeedItem>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([])
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+
+    private func setItemsToDataSource(_ feedItems: [FeedItem]) {
+        var currentSnapshot = dataSource.snapshot()
+        currentSnapshot.deleteAllItems()
+        currentSnapshot.appendSections([.main])
+        currentSnapshot.appendItems(feedItems)
+        dataSource.apply(currentSnapshot, animatingDifferences: false)
+    }
+    
+    private func appendItemsToDataSource(_ feedItems: [FeedItem]) {
+        var currentSnapshot = dataSource.snapshot()
+        currentSnapshot.appendItems(feedItems)
+        dataSource.apply(currentSnapshot, animatingDifferences: false)
     }
     
     private func loadFeedItems() {

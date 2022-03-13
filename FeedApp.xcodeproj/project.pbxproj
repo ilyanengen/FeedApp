@@ -26,6 +26,8 @@
 		09702AA527DE03A7008692ED /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09702AA327DE03A7008692ED /* FeedViewController.xib */; };
 		09702AA927DE1610008692ED /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AA827DE1610008692ED /* FeedService.swift */; };
 		09702AAB27DE1705008692ED /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AAA27DE1705008692ED /* FeedResponse.swift */; };
+		09702AAE27DE5336008692ED /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AAC27DE5336008692ED /* FeedCell.swift */; };
+		09702AAF27DE5336008692ED /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09702AAD27DE5336008692ED /* FeedCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		09702AA327DE03A7008692ED /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
 		09702AA827DE1610008692ED /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		09702AAA27DE1705008692ED /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		09702AAC27DE5336008692ED /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		09702AAD27DE5336008692ED /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,8 @@
 			children = (
 				09702AA227DE03A7008692ED /* FeedViewController.swift */,
 				09702AA327DE03A7008692ED /* FeedViewController.xib */,
+				09702AAC27DE5336008692ED /* FeedCell.swift */,
+				09702AAD27DE5336008692ED /* FeedCell.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 				09275BC027DCB34600E8F7E6 /* Assets.xcassets in Resources */,
 				09702AA527DE03A7008692ED /* FeedViewController.xib in Resources */,
 				09275BF327DCFE9E00E8F7E6 /* LoginViewController.xib in Resources */,
+				09702AAF27DE5336008692ED /* FeedCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09275BFA27DD27B800E8F7E6 /* ServiceLayer.swift in Sources */,
+				09702AAE27DE5336008692ED /* FeedCell.swift in Sources */,
 				09275BF827DD08AF00E8F7E6 /* UIViewController+Extensions.swift in Sources */,
 				09702AA427DE03A7008692ED /* FeedViewController.swift in Sources */,
 				09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */,
