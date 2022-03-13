@@ -23,7 +23,7 @@ class FeedViewController: UIViewController {
     
     private let code: Code
     
-    private var feetItems: [FeedItem] = []
+    private var feedItems: [FeedItem] = []
     
     init(code: Code) {
         self.code = code
@@ -38,11 +38,16 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         setInitialDataSource()
         loadFeedItems()
+        configureTableView()
+    }
+    
+    private func configureTableView() {
+        tableView.tableFooterView = UIView()
     }
     
     private func setupDataSource() -> UITableViewDiffableDataSource<Section, FeedItem> {
-        tableView.register(FeedCell.self, forCellReuseIdentifier: FeedCell.reuseIdentifier)
-        return UITableViewDiffableDataSource<Section, FeedItem>(tableView: tableView) {
+        tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: FeedCell.reuseIdentifier)
+        let dataSource = UITableViewDiffableDataSource<Section, FeedItem>(tableView: tableView) {
             tableView, indexPath, feedItem -> UITableViewCell? in
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: FeedCell.reuseIdentifier,
@@ -53,6 +58,7 @@ class FeedViewController: UIViewController {
             cell.configure(feedItem: feedItem)
             return cell
         }
+        return dataSource
     }
     
     private func setInitialDataSource() {
@@ -84,7 +90,8 @@ class FeedViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                 case .success(let feedItems):
-                    print(feedItems)
+                    self.feedItems.append(contentsOf: feedItems)
+                    self.appendItemsToDataSource(feedItems)
                 }
             }
         }
