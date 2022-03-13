@@ -28,6 +28,7 @@
 		09702AAB27DE1705008692ED /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AAA27DE1705008692ED /* FeedResponse.swift */; };
 		09702AAE27DE5336008692ED /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AAC27DE5336008692ED /* FeedCell.swift */; };
 		09702AAF27DE5336008692ED /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09702AAD27DE5336008692ED /* FeedCell.xib */; };
+		09702AB327DE8ABE008692ED /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AB227DE8ABE008692ED /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		09702AAA27DE1705008692ED /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 		09702AAC27DE5336008692ED /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		09702AAD27DE5336008692ED /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		09702AB227DE8ABE008692ED /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,12 +125,12 @@
 		09275BB527DCB34500E8F7E6 /* FeedApp */ = {
 			isa = PBXGroup;
 			children = (
-				09275BF527DD088300E8F7E6 /* Utilities */,
 				09275BE727DCFA7500E8F7E6 /* Application */,
 				09275BE927DCFAB600E8F7E6 /* Business Logic */,
 				09275BE627DCFA5900E8F7E6 /* Presentation */,
 				09275BE827DCFAA800E8F7E6 /* Resources */,
 				09275BEA27DCFAE700E8F7E6 /* Supporting files */,
+				09275BF527DD088300E8F7E6 /* Utilities */,
 			);
 			path = FeedApp;
 			sourceTree = "<group>";
@@ -181,10 +183,11 @@
 		09275BE927DCFAB600E8F7E6 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */,
-				09275C0227DD3D1800E8F7E6 /* APIError.swift */,
-				09702AA727DE15DE008692ED /* Feed */,
+				09702AB027DE8A6A008692ED /* APIResponse */,
 				09275BFF27DD3CE300E8F7E6 /* Auth */,
+				09702AA727DE15DE008692ED /* Feed */,
+				09702AB127DE8A83008692ED /* Model */,
+				09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -245,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				09275BFB27DD27C800E8F7E6 /* AuthService.swift */,
-				09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -254,9 +256,26 @@
 			isa = PBXGroup;
 			children = (
 				09702AA827DE1610008692ED /* FeedService.swift */,
-				09702AAA27DE1705008692ED /* FeedResponse.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		09702AB027DE8A6A008692ED /* APIResponse */ = {
+			isa = PBXGroup;
+			children = (
+				09702AAA27DE1705008692ED /* FeedResponse.swift */,
+				09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */,
+				09275C0227DD3D1800E8F7E6 /* APIError.swift */,
+			);
+			path = APIResponse;
+			sourceTree = "<group>";
+		};
+		09702AB127DE8A83008692ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09702AB227DE8ABE008692ED /* FeedItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +423,7 @@
 				09702AAB27DE1705008692ED /* FeedResponse.swift in Sources */,
 				09275C0327DD3D1800E8F7E6 /* APIError.swift in Sources */,
 				09275C0127DD3CFA00E8F7E6 /* AuthResponse.swift in Sources */,
+				09702AB327DE8ABE008692ED /* FeedItem.swift in Sources */,
 				09275BB727DCB34500E8F7E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
