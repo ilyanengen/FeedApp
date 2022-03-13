@@ -25,7 +25,25 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureMapView()
+    }
+    
+    private func configureMapView() {
+        mapView.showsUserLocation = true
+        
+        let annotation = MKPointAnnotation()
+        annotation.title = feedItem.name
+        annotation.coordinate = CLLocationCoordinate2D(
+            latitude: feedItem.lat,
+            longitude: feedItem.lon
+        )
+        mapView.addAnnotation(annotation)
+        
+        let region = MKCoordinateRegion(
+            center: annotation.coordinate,
+            latitudinalMeters: 5000,
+            longitudinalMeters: 5000
+        )
+        mapView.setRegion(region, animated: true)
     }
 }
