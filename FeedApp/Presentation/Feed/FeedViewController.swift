@@ -84,8 +84,10 @@ class FeedViewController: UIViewController {
     }
     
     private func loadFeedItems() {
+        isLoading = true
         feedService.fetchFeedItems(code: code, offset: feedItems.count) { [weak self] result in
             guard let self = self else { return }
+            self.isLoading = false
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
@@ -99,9 +101,11 @@ class FeedViewController: UIViewController {
     }
     
     private func loadMore() {
+        isLoading = true
         footerLoadingIndicator.startAnimating()
         feedService.fetchFeedItems(code: code, offset: feedItems.count) { [weak self] result in
             guard let self = self else { return }
+            self.isLoading = false
             DispatchQueue.main.async {
                 self.footerLoadingIndicator.stopAnimating()
                 switch result {
