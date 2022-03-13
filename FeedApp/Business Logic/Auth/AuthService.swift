@@ -12,11 +12,11 @@ typealias Code = String
 final class AuthService {
     
     func signIn(username: String, password: String, completion: @escaping (Result<Code, Error>) -> Void) {
-        guard let url = constructSignInRequestUrl(username: username, password: password) else {
-            completion(.failure(AuthError.requestConstructFailed))
+        guard let signInRequest = constructSignInRequest(username: username, password: password) else {
+            completion(.failure(APIError.requestConstructFailed))
             return
         }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: signInRequest) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -24,23 +24,29 @@ final class AuthService {
             guard
                 let data = data,
                 let httpResponse = response as? HTTPURLResponse,
-                httpResponse.statusCode == 200,
-                let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data),
-                authResponse.status == .ok
+                httpResponse.statusCode == 200
             else {
-                completion(.failure(AuthError.requestFailed))
+                completion(.failure(APIError.requestFailed))
                 return
             }
-            completion(.success(authResponse.code))
+            guard let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
+                completion(.failure(APIError.parsingFailed))
+                return
+            }
+            switch authResponse.status {
+            case .ok    : completion(.success(authResponse.code))
+            case .error : completion(.failure(APIError.requestFailed))
+            }
         }
         task.resume()
     }
-    
-    private func constructSignInRequestUrl(username: String, password: String) -> URL? {
-        var components = URLComponents(string: Constants.API.auth)
+
+    private func constructSignInRequest(username: String, password: String) -> URLRequest? {
+        var components = URLComponents(string: Constants.API.authUrl)
         let usernameQueryItem = URLQueryItem(name: "username", value: username)
         let passwordQueryItem = URLQueryItem(name: "password", value: password)
         components?.queryItems = [usernameQueryItem, passwordQueryItem]
-        return components?.url
+        guard let url = components?.url else { return nil }
+        return URLRequest(url: url)
     }
 }

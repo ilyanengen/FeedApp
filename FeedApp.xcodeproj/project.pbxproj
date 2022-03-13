@@ -21,9 +21,11 @@
 		09275BFC27DD27C800E8F7E6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BFB27DD27C800E8F7E6 /* AuthService.swift */; };
 		09275BFE27DD29B900E8F7E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BFD27DD29B900E8F7E6 /* Constants.swift */; };
 		09275C0127DD3CFA00E8F7E6 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */; };
-		09275C0327DD3D1800E8F7E6 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275C0227DD3D1800E8F7E6 /* AuthError.swift */; };
+		09275C0327DD3D1800E8F7E6 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275C0227DD3D1800E8F7E6 /* APIError.swift */; };
 		09702AA427DE03A7008692ED /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AA227DE03A7008692ED /* FeedViewController.swift */; };
 		09702AA527DE03A7008692ED /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09702AA327DE03A7008692ED /* FeedViewController.xib */; };
+		09702AA927DE1610008692ED /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AA827DE1610008692ED /* FeedService.swift */; };
+		09702AAB27DE1705008692ED /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AAA27DE1705008692ED /* FeedResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +64,11 @@
 		09275BFB27DD27C800E8F7E6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		09275BFD27DD29B900E8F7E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
-		09275C0227DD3D1800E8F7E6 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		09275C0227DD3D1800E8F7E6 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		09702AA227DE03A7008692ED /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		09702AA327DE03A7008692ED /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
+		09702AA827DE1610008692ED /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		09702AAA27DE1705008692ED /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */,
+				09275C0227DD3D1800E8F7E6 /* APIError.swift */,
+				09702AA727DE15DE008692ED /* Feed */,
 				09275BFF27DD3CE300E8F7E6 /* Auth */,
 			);
 			path = "Business Logic";
@@ -234,9 +240,17 @@
 			children = (
 				09275BFB27DD27C800E8F7E6 /* AuthService.swift */,
 				09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */,
-				09275C0227DD3D1800E8F7E6 /* AuthError.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		09702AA727DE15DE008692ED /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				09702AA827DE1610008692ED /* FeedService.swift */,
+				09702AAA27DE1705008692ED /* FeedResponse.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,8 +391,10 @@
 				09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */,
 				09275BFC27DD27C800E8F7E6 /* AuthService.swift in Sources */,
 				09275BFE27DD29B900E8F7E6 /* Constants.swift in Sources */,
+				09702AA927DE1610008692ED /* FeedService.swift in Sources */,
 				09275BEF27DCFB8E00E8F7E6 /* AppViewController.swift in Sources */,
-				09275C0327DD3D1800E8F7E6 /* AuthError.swift in Sources */,
+				09702AAB27DE1705008692ED /* FeedResponse.swift in Sources */,
+				09275C0327DD3D1800E8F7E6 /* APIError.swift in Sources */,
 				09275C0127DD3CFA00E8F7E6 /* AuthResponse.swift in Sources */,
 				09275BB727DCB34500E8F7E6 /* AppDelegate.swift in Sources */,
 			);

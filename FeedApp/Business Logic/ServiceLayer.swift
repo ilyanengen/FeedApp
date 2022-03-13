@@ -11,4 +11,5 @@ final class ServiceLayer {
     static let shared = ServiceLayer()
     
     let authService = AuthService()
+    let feedService = FeedService()
 }

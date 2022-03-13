@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum AuthResponseStatus: String, Decodable {
+enum APIRequestStatus: String, Decodable {
     case ok
     case error
 }
 
 struct AuthResponse: Decodable {
-    let status: AuthResponseStatus
+    let status: APIRequestStatus
     let code: String
 }

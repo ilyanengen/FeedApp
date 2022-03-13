@@ -10,7 +10,9 @@ import Foundation
 struct Constants {
     
     struct API {
-        static let auth = "http://www.alarstudios.com/test/auth.cgi"
-        static let data = "http://www.alarstudios.com/test/data.cgi"
+        static let authUrl = "http://www.alarstudios.com/test/auth.cgi"
+        static let dataUrl = "http://www.alarstudios.com/test/data.cgi"
+        
+        static let itemsPerPage = 10
     }
 }

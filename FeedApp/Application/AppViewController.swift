@@ -13,11 +13,12 @@ class AppViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
         
-        // TODO:
+        // TODO: Test data -> store and fetch from Keychain
         var isSignedIn = false
+        let savedCode = "1234"
         
         if isSignedIn == true {
-            showFeedScreen()
+            showFeedScreen(code: savedCode)
         } else {
             showLoginScreen()
         }
@@ -29,8 +30,8 @@ class AppViewController: UIViewController {
         add(loginVC)
     }
     
-    private func showFeedScreen() {
-        let feedVC = FeedViewController()
+    private func showFeedScreen(code: Code) {
+        let feedVC = FeedViewController(code: code)
         feedVC.delegate = self
         let navController = UINavigationController(rootViewController: feedVC)
         add(navController)
@@ -39,7 +40,7 @@ class AppViewController: UIViewController {
 
 extension AppViewController: LoginViewControllerDelegate {
     func loginViewControllerDidAuth(_ viewController: LoginViewController, code: Code) {
-        showFeedScreen()
+        showFeedScreen(code: code)
         viewController.remove()
     }
 }
