@@ -19,6 +19,7 @@ class FeedViewController: UIViewController {
     
     private lazy var dataSource = setupDataSource()
     private lazy var footerLoadingIndicator = UIActivityIndicatorView()
+    private lazy var topRefreshControl = UIRefreshControl()
     
     private let feedService = ServiceLayer.shared.feedService
     private let code: Code
@@ -36,14 +37,23 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setInitialDataSource()
-        loadFeedItems()
         configureTableView()
+        loadFeedItems()
     }
     
     private func configureTableView() {
+        setInitialDataSourceSnapshot()
         footerLoadingIndicator.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 44)
         tableView.tableFooterView = footerLoadingIndicator
+        topRefreshControl.addTarget(self, action: #selector(topRefreshControlDidDrag), for: .valueChanged)
+        tableView.refreshControl = topRefreshControl
+    }
+    
+    private func setInitialDataSourceSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, FeedItem>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([])
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     private func setupDataSource() -> UITableViewDiffableDataSource<Section, FeedItem> {
@@ -60,13 +70,6 @@ class FeedViewController: UIViewController {
             return cell
         }
         return dataSource
-    }
-    
-    private func setInitialDataSource() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, FeedItem>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems([])
-        dataSource.apply(snapshot, animatingDifferences: false)
     }
 
     private func setItemsToDataSource(_ feedItems: [FeedItem]) {
@@ -85,16 +88,17 @@ class FeedViewController: UIViewController {
     
     private func loadFeedItems() {
         isLoading = true
-        feedService.fetchFeedItems(code: code, offset: feedItems.count) { [weak self] result in
+        feedService.fetchFeedItems(code: code, offset: 0) { [weak self] result in
             guard let self = self else { return }
             self.isLoading = false
             DispatchQueue.main.async {
+                self.topRefreshControl.endRefreshing()
                 switch result {
                 case .failure(let error):
                     print(error)
                 case .success(let feedItems):
-                    self.feedItems.append(contentsOf: feedItems)
-                    self.appendItemsToDataSource(feedItems)
+                    self.feedItems = feedItems
+                    self.setItemsToDataSource(feedItems)
                 }
             }
         }
@@ -117,6 +121,10 @@ class FeedViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc private func topRefreshControlDidDrag() {
+        loadFeedItems()
     }
 }
 
