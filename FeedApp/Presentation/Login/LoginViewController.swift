@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     
+    weak var delegate: LoginViewControllerDelegate?
+    
     private let authService = ServiceLayer.shared.authService
     
     override func viewDidLoad() {
@@ -34,12 +36,13 @@ class LoginViewController: UIViewController {
             username: username,
             password: password
         ) { [weak self] result in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
                     print(error)
                 case .success(let code):
-                    print(code)
+                    self.delegate?.loginViewControllerDidAuth(self, code: code)
                 }
             }
         }
@@ -74,14 +77,15 @@ class LoginViewController: UIViewController {
     
     @objc private func handleKeyboardWillShow(notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.size.height, right: 0)
+        let newBottomInset = keyboardFrame.size.height
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: newBottomInset, right: 0)
         scrollView.contentInset = contentInsets
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }
     
     @objc private func handleKeyboardWillHide(notification: Notification) {
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         view.setNeedsLayout()
@@ -91,4 +95,8 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     // TODO
+}
+
+protocol LoginViewControllerDelegate: AnyObject {
+    func loginViewControllerDidAuth(_ viewController: LoginViewController, code: Code)
 }

@@ -17,18 +17,36 @@ class AppViewController: UIViewController {
         var isSignedIn = false
         
         if isSignedIn == true {
-            showMain()
+            showFeedScreen()
         } else {
-            showLogin()
+            showLoginScreen()
         }
     }
     
-    private func showLogin() {
+    private func showLoginScreen() {
         let loginVC = LoginViewController()
+        loginVC.delegate = self
         add(loginVC)
     }
     
-    private func showMain() {
-        // TODO
+    private func showFeedScreen() {
+        let feedVC = FeedViewController()
+        feedVC.delegate = self
+        let navController = UINavigationController(rootViewController: feedVC)
+        add(navController)
+    }
+}
+
+extension AppViewController: LoginViewControllerDelegate {
+    func loginViewControllerDidAuth(_ viewController: LoginViewController, code: Code) {
+        showFeedScreen()
+        viewController.remove()
+    }
+}
+
+extension AppViewController: FeedViewControllerDelegate {
+    func feedViewControllerDidLogOut(_ viewController: FeedViewController) {
+        showLoginScreen()
+        viewController.remove()
     }
 }

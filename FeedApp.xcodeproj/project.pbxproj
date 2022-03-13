@@ -22,6 +22,8 @@
 		09275BFE27DD29B900E8F7E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275BFD27DD29B900E8F7E6 /* Constants.swift */; };
 		09275C0127DD3CFA00E8F7E6 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */; };
 		09275C0327DD3D1800E8F7E6 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09275C0227DD3D1800E8F7E6 /* AuthError.swift */; };
+		09702AA427DE03A7008692ED /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09702AA227DE03A7008692ED /* FeedViewController.swift */; };
+		09702AA527DE03A7008692ED /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09702AA327DE03A7008692ED /* FeedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		09275BFD27DD29B900E8F7E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		09275C0227DD3D1800E8F7E6 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		09702AA227DE03A7008692ED /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		09702AA327DE03A7008692ED /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,8 @@
 		09275BEC27DCFB0E00E8F7E6 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				09702AA227DE03A7008692ED /* FeedViewController.swift */,
+				09702AA327DE03A7008692ED /* FeedViewController.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -339,6 +345,7 @@
 			files = (
 				09275BC327DCB34600E8F7E6 /* LaunchScreen.storyboard in Resources */,
 				09275BC027DCB34600E8F7E6 /* Assets.xcassets in Resources */,
+				09702AA527DE03A7008692ED /* FeedViewController.xib in Resources */,
 				09275BF327DCFE9E00E8F7E6 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +373,7 @@
 			files = (
 				09275BFA27DD27B800E8F7E6 /* ServiceLayer.swift in Sources */,
 				09275BF827DD08AF00E8F7E6 /* UIViewController+Extensions.swift in Sources */,
+				09702AA427DE03A7008692ED /* FeedViewController.swift in Sources */,
 				09275BF227DCFE9E00E8F7E6 /* LoginViewController.swift in Sources */,
 				09275BFC27DD27C800E8F7E6 /* AuthService.swift in Sources */,
 				09275BFE27DD29B900E8F7E6 /* Constants.swift in Sources */,
