@@ -17,13 +17,13 @@ class FeedViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private let feedService = ServiceLayer.shared.feedService
-    
     private lazy var dataSource = setupDataSource()
+    private lazy var footerLoadingIndicator = UIActivityIndicatorView()
     
+    private let feedService = ServiceLayer.shared.feedService
     private let code: Code
-    
     private var feedItems: [FeedItem] = []
+    private var isLoading: Bool = false
     
     init(code: Code) {
         self.code = code
@@ -42,7 +42,8 @@ class FeedViewController: UIViewController {
     }
     
     private func configureTableView() {
-        tableView.tableFooterView = UIView()
+        footerLoadingIndicator.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 44)
+        tableView.tableFooterView = footerLoadingIndicator
     }
     
     private func setupDataSource() -> UITableViewDiffableDataSource<Section, FeedItem> {
@@ -83,7 +84,7 @@ class FeedViewController: UIViewController {
     }
     
     private func loadFeedItems() {
-        feedService.fetchFeedItems(code: code, offset: 0) { [weak self] result in
+        feedService.fetchFeedItems(code: code, offset: feedItems.count) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
@@ -96,7 +97,37 @@ class FeedViewController: UIViewController {
             }
         }
     }
+    
+    private func loadMore() {
+        footerLoadingIndicator.startAnimating()
+        feedService.fetchFeedItems(code: code, offset: feedItems.count) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.footerLoadingIndicator.stopAnimating()
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let feedItems):
+                    self.feedItems.append(contentsOf: feedItems)
+                    self.appendItemsToDataSource(feedItems)
+                }
+            }
+        }
+    }
 }
+
+extension FeedViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let scrollViewHeight = scrollView.frame.size.height
+        let isBottomReached = offsetY > contentHeight - scrollViewHeight
+        if isBottomReached == true && isLoading == false {
+            loadMore()
+        }
+    }
+}
+
 
 protocol FeedViewControllerDelegate: AnyObject {
     func feedViewControllerDidLogOut(_ viewController: FeedViewController)
