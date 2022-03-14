@@ -11,12 +11,22 @@ typealias Code = String
 
 final class AuthService {
     
+    var code: String? {
+        get {
+            return UserDefaults.standard.object(forKey: "code") as? String
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "code")
+        }
+    }
+    
     func signIn(username: String, password: String, completion: @escaping (Result<Code, Error>) -> Void) {
         guard let signInRequest = constructSignInRequest(username: username, password: password) else {
             completion(.failure(APIError.requestConstructFailed))
             return
         }
-        let task = URLSession.shared.dataTask(with: signInRequest) { data, response, error in
+        let task = URLSession.shared.dataTask(with: signInRequest) { [weak self] data, response, error in
+            guard let self = self else { return }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -34,11 +44,18 @@ final class AuthService {
                 return
             }
             switch authResponse.status {
-            case .ok    : completion(.success(authResponse.code))
-            case .error : completion(.failure(APIError.requestFailed))
+            case .ok:
+                self.code = authResponse.code
+                completion(.success(authResponse.code))
+            case .error:
+                completion(.failure(APIError.requestFailed))
             }
         }
         task.resume()
+    }
+    
+    func logout() {
+        code = nil
     }
 
     private func constructSignInRequest(username: String, password: String) -> URLRequest? {

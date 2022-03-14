@@ -8,16 +8,12 @@
 import UIKit
 
 class AppViewController: UIViewController {
+    
+    private let authService = ServiceLayer.shared.authService
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        
-        // TODO: Test data -> store and fetch from Keychain
-        var isSignedIn = false
-        let savedCode = "1234"
-        
-        if isSignedIn == true {
+        if let savedCode = authService.code {
             showFeedScreen(code: savedCode)
         } else {
             showLoginScreen()
@@ -49,5 +45,6 @@ extension AppViewController: FeedViewControllerDelegate {
     func feedViewControllerDidLogOut(_ viewController: FeedViewController) {
         showLoginScreen()
         viewController.remove()
+        authService.logout()
     }
 }
