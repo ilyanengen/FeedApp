@@ -163,9 +163,10 @@
 		09275BE627DCFA5900E8F7E6 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				09275BED27DCFB1500E8F7E6 /* Map */,
+				09702ABC27DEBD45008692ED /* Common */,
 				09275BEC27DCFB0E00E8F7E6 /* Feed */,
 				09275BEB27DCFB0600E8F7E6 /* Login */,
+				09275BED27DCFB1500E8F7E6 /* Map */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 		09275BF527DD088300E8F7E6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				09275BF627DD089500E8F7E6 /* Extensions */,
 				09275BFD27DD29B900E8F7E6 /* Constants.swift */,
 			);
 			path = Utilities;
@@ -272,6 +272,14 @@
 				09702AB227DE8ABE008692ED /* FeedItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		09702ABC27DEBD45008692ED /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				09275BF627DD089500E8F7E6 /* Extensions */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

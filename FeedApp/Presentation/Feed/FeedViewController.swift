@@ -106,7 +106,7 @@ class FeedViewController: UIViewController {
                 self.topRefreshControl.endRefreshing()
                 switch result {
                 case .failure(let error):
-                    print(error)
+                    self.showErrorAlert(error: error)
                 case .success(let feedItems):
                     self.feedItems = feedItems
                     self.setItemsToDataSource(feedItems)
@@ -125,7 +125,7 @@ class FeedViewController: UIViewController {
                 self.footerLoadingIndicator.stopAnimating()
                 switch result {
                 case .failure(let error):
-                    print(error)
+                    self.showErrorAlert(error: error)
                 case .success(let feedItems):
                     self.feedItems.append(contentsOf: feedItems)
                     self.appendItemsToDataSource(feedItems)

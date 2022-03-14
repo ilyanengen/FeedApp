@@ -21,4 +21,14 @@ extension UIViewController {
         self.view.removeFromSuperview()
         self.removeFromParent()
     }
+    
+    func showErrorAlert(error: Error) {
+        let alertViewController = UIAlertController(
+            title: "Error",
+            message: error.localizedDescription,
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertViewController.addAction(okAction)
+        present(alertViewController, animated: true)
+    }
 }

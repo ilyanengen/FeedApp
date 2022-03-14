@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
-                    print(error)
+                    self.showErrorAlert(error: error)
                 case .success(let code):
                     self.delegate?.loginViewControllerDidAuth(self, code: code)
                 }
