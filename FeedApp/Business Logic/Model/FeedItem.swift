@@ -40,7 +40,7 @@ extension FeedItem {
     }
     
     private func generateImageUrl() -> URL {
-        let randomImageId = String(Int.random(in: 1..<1000))
+        let randomImageId = String(Int.random(in: 1..<50))
         let string = "https://picsum.photos/id/" + randomImageId + "/300"
         return URL(string: string)!
     }
