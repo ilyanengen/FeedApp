@@ -107,8 +107,9 @@ class LoginViewController: UIViewController {
     @objc private func handleKeyboardWillShow(notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         let newBottomInset = keyboardFrame.size.height
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: newBottomInset, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: newBottomInset + 100, right: 0)
         scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }
