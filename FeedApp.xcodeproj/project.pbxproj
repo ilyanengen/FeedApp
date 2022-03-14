@@ -195,9 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				09275BFB27DD27C800E8F7E6 /* AuthService.swift */,
+				09702AB427DE9E87008692ED /* CacheService.swift */,
 				09702AA827DE1610008692ED /* FeedService.swift */,
 				09275BF927DD27B800E8F7E6 /* ServiceLayer.swift */,
-				09702AB427DE9E87008692ED /* CacheService.swift */,
 				09702AB027DE8A6A008692ED /* APIResponse */,
 				09702AB127DE8A83008692ED /* Model */,
 			);
@@ -262,9 +262,9 @@
 		09702AB027DE8A6A008692ED /* APIResponse */ = {
 			isa = PBXGroup;
 			children = (
-				09702AAA27DE1705008692ED /* FeedResponse.swift */,
-				09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */,
 				09275C0227DD3D1800E8F7E6 /* APIError.swift */,
+				09275C0027DD3CFA00E8F7E6 /* AuthResponse.swift */,
+				09702AAA27DE1705008692ED /* FeedResponse.swift */,
 			);
 			path = APIResponse;
 			sourceTree = "<group>";
