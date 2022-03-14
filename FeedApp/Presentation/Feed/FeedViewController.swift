@@ -44,8 +44,9 @@ class FeedViewController: UIViewController {
     }
     
     private func configureNavBar() {
+        navigationController?.navigationBar.tintColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Logout",
+            image: UIImage(systemName: "rectangle.portrait.and.arrow.right"),
             style: .plain,
             target: self,
             action: #selector(logoutButtonDidTap)
@@ -83,7 +84,7 @@ class FeedViewController: UIViewController {
         return dataSource
     }
 
-    private func setItemsToDataSource(_ feedItems: [FeedItem]) {
+    private func setItemsToDataSource(_ feedItems: [FeedItem]) {        
         var currentSnapshot = dataSource.snapshot()
         currentSnapshot.deleteAllItems()
         currentSnapshot.appendSections([.main])

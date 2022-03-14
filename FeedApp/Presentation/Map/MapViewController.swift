@@ -41,8 +41,8 @@ class MapViewController: UIViewController {
         
         let region = MKCoordinateRegion(
             center: annotation.coordinate,
-            latitudinalMeters: 5000,
-            longitudinalMeters: 5000
+            latitudinalMeters: Constants.Map.radiusInMeters,
+            longitudinalMeters: Constants.Map.radiusInMeters
         )
         mapView.setRegion(region, animated: true)
     }

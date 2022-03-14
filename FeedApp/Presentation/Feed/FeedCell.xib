@@ -11,44 +11,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="KGk-i7-Jjw" customClass="FeedCell" customModule="FeedApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="459" height="400"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="342" id="KGk-i7-Jjw" customClass="FeedCell" customModule="FeedApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="342"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="459" height="400"/>
+                <rect key="frame" x="0.0" y="0.0" width="415" height="342"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r6q-do-Ye1">
-                        <rect key="frame" x="0.0" y="51" width="459" height="250"/>
+                        <rect key="frame" x="0.0" y="76" width="415" height="250"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="uBM-tO-MgW"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3w-mz-Znh">
-                        <rect key="frame" x="20" y="20" width="419" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3w-mz-Znh">
+                        <rect key="frame" x="20" y="20" width="375" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="country" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-E7-LDf">
-                        <rect key="frame" x="20" y="321" width="419" height="59"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="country" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-E7-LDf">
+                        <rect key="frame" x="20" y="48.5" width="375" height="17.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="r6q-do-Ye1" firstAttribute="top" secondItem="X3w-mz-Znh" secondAttribute="bottom" constant="10" id="0vF-3O-FJb"/>
+                    <constraint firstAttribute="bottom" secondItem="r6q-do-Ye1" secondAttribute="bottom" constant="16" id="2Xn-oM-WUZ"/>
                     <constraint firstAttribute="trailing" secondItem="r6q-do-Ye1" secondAttribute="trailing" id="5yh-HE-uXn"/>
                     <constraint firstItem="X3w-mz-Znh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="7Q0-3x-ncl"/>
-                    <constraint firstItem="hQT-E7-LDf" firstAttribute="top" secondItem="r6q-do-Ye1" secondAttribute="bottom" constant="20" id="FiD-ew-Ags"/>
+                    <constraint firstAttribute="trailing" secondItem="hQT-E7-LDf" secondAttribute="trailing" constant="20" id="IOP-jV-ioK"/>
                     <constraint firstAttribute="trailing" secondItem="X3w-mz-Znh" secondAttribute="trailing" constant="20" id="NmW-mK-CpW"/>
-                    <constraint firstItem="hQT-E7-LDf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="OWo-jc-nRn"/>
-                    <constraint firstItem="r6q-do-Ye1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="UTn-WU-rsc"/>
-                    <constraint firstAttribute="trailing" secondItem="hQT-E7-LDf" secondAttribute="trailing" constant="20" id="bXx-8S-PAC"/>
-                    <constraint firstAttribute="bottom" secondItem="hQT-E7-LDf" secondAttribute="bottom" constant="20" id="h5t-RJ-8QT"/>
+                    <constraint firstItem="hQT-E7-LDf" firstAttribute="top" secondItem="X3w-mz-Znh" secondAttribute="bottom" constant="8" id="d7S-gN-WY7"/>
+                    <constraint firstItem="r6q-do-Ye1" firstAttribute="top" secondItem="hQT-E7-LDf" secondAttribute="bottom" constant="10" id="quz-Ai-gbb"/>
                     <constraint firstItem="r6q-do-Ye1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="r0r-9d-fs2"/>
+                    <constraint firstItem="hQT-E7-LDf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uo5-Sl-QP0"/>
                     <constraint firstItem="X3w-mz-Znh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="x9z-qY-1bZ"/>
                 </constraints>
             </tableViewCellContentView>
@@ -58,7 +57,7 @@
                 <outlet property="nameLabel" destination="X3w-mz-Znh" id="eKr-jh-ZDr"/>
                 <outlet property="photoImageView" destination="r6q-do-Ye1" id="qfr-Ka-AFw"/>
             </connections>
-            <point key="canvasLocation" x="232.60869565217394" y="198.88392857142856"/>
+            <point key="canvasLocation" x="200.72463768115944" y="178.79464285714286"/>
         </tableViewCell>
     </objects>
     <resources>
