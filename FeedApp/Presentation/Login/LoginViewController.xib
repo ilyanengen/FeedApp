@@ -37,6 +37,7 @@
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="nickname"/>
                                             <connections>
                                                 <action selector="textFieldTextChanged:" destination="-1" eventType="editingChanged" id="9Wp-wC-8oS"/>
+                                                <outlet property="delegate" destination="-1" id="Oqj-1i-PsS"/>
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-mI-2cc">
@@ -45,6 +46,7 @@
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                             <connections>
                                                 <action selector="textFieldTextChanged:" destination="-1" eventType="editingChanged" id="YF3-JV-dkA"/>
+                                                <outlet property="delegate" destination="-1" id="6LJ-qT-k8H"/>
                                             </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ur-9u-NUg">

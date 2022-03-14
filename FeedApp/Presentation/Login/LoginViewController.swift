@@ -24,18 +24,14 @@ class LoginViewController: UIViewController {
         addKeyboardHideTapRecognizer()
     }
     
-    @IBAction func signInButtonDidTap(_ sender: UIButton) {
-        // TODO: validate textfields here
+    private func signIn() {
         guard
             let username = usernameTextField.text,
             let password = passwordTextField.text
         else {
             return
         }
-        authService.signIn(
-            username: username,
-            password: password
-        ) { [weak self] result in
+        authService.signIn(username: username, password: password) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
@@ -59,6 +55,10 @@ class LoginViewController: UIViewController {
         signInButton.isEnabled = true
     }
     
+    @IBAction private func signInButtonDidTap(_ sender: UIButton) {
+        signIn()
+    }
+        
     @IBAction func textFieldTextChanged(_ sender: UITextField) {
         updateSignInButton()
     }
@@ -109,7 +109,18 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    // TODO
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case usernameTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            dismissKeyboard()
+            signIn()
+        default:
+            return true
+        }
+        return false
+    }
 }
 
 protocol LoginViewControllerDelegate: AnyObject {
