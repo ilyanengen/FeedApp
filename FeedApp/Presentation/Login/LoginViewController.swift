@@ -48,6 +48,21 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private func updateSignInButton() {
+        guard
+            usernameTextField.text?.isEmpty == false,
+            passwordTextField.text?.isEmpty == false
+        else {
+            signInButton.isEnabled = false
+            return
+        }
+        signInButton.isEnabled = true
+    }
+    
+    @IBAction func textFieldTextChanged(_ sender: UITextField) {
+        updateSignInButton()
+    }
+    
     // MARK: - Keyboard
     
     private func addKeyboardHideTapRecognizer() {
