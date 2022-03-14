@@ -61,13 +61,6 @@ class FeedViewController: UIViewController {
         tableView.refreshControl = topRefreshControl
     }
     
-    private func setInitialDataSourceSnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, FeedItem>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems([])
-        dataSource.apply(snapshot, animatingDifferences: false)
-    }
-    
     private func setupDataSource() -> UITableViewDiffableDataSource<Section, FeedItem> {
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: FeedCell.reuseIdentifier)
         let dataSource = UITableViewDiffableDataSource<Section, FeedItem>(tableView: tableView) {
@@ -84,11 +77,19 @@ class FeedViewController: UIViewController {
         return dataSource
     }
 
-    private func setItemsToDataSource(_ feedItems: [FeedItem]) {        
+    private func setInitialDataSourceSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, FeedItem>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([])
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+    
+    private func setItemsToDataSource(_ feedItems: [FeedItem]) {
         var currentSnapshot = dataSource.snapshot()
         currentSnapshot.deleteAllItems()
         currentSnapshot.appendSections([.main])
         currentSnapshot.appendItems(feedItems)
+        currentSnapshot.reloadSections([.main])
         dataSource.apply(currentSnapshot, animatingDifferences: false)
     }
     
