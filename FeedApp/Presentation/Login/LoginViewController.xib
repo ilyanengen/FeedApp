@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="FeedApp" customModuleProvider="target">
             <connections>
+                <outlet property="loadingIndicator" destination="YF5-Jp-CN4" id="cyj-ax-pxI"/>
                 <outlet property="passwordTextField" destination="5Il-mI-2cc" id="ahz-dU-abf"/>
                 <outlet property="scrollView" destination="Dl5-Vz-mJ0" id="lHI-1f-VbH"/>
                 <outlet property="signInButton" destination="0ur-9u-NUg" id="MMz-NS-ZCQ"/>
@@ -28,6 +29,9 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Nc-5D-qAw" userLabel="contentView">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="364.5"/>
                             <subviews>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="YF5-Jp-CN4">
+                                    <rect key="frame" x="197" y="318.5" width="20" height="20"/>
+                                </activityIndicatorView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="X8n-fN-V05">
                                     <rect key="frame" x="20" y="202.5" width="374" height="142"/>
                                     <subviews>
@@ -72,11 +76,13 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="X8n-fN-V05" secondAttribute="trailing" constant="20" id="0bh-Nc-LIV"/>
                                 <constraint firstItem="mFz-zg-vLw" firstAttribute="top" secondItem="3Nc-5D-qAw" secondAttribute="top" constant="100" id="731-wE-f78"/>
+                                <constraint firstItem="YF5-Jp-CN4" firstAttribute="top" secondItem="5Il-mI-2cc" secondAttribute="bottom" constant="28" id="HnI-JH-CKb"/>
                                 <constraint firstAttribute="trailing" secondItem="mFz-zg-vLw" secondAttribute="trailing" constant="20" id="O0D-Uu-XsF"/>
                                 <constraint firstItem="X8n-fN-V05" firstAttribute="leading" secondItem="3Nc-5D-qAw" secondAttribute="leading" constant="20" id="RrR-5a-Ty2"/>
                                 <constraint firstItem="mFz-zg-vLw" firstAttribute="leading" secondItem="3Nc-5D-qAw" secondAttribute="leading" constant="20" id="cfa-y4-umz"/>
                                 <constraint firstItem="X8n-fN-V05" firstAttribute="top" secondItem="mFz-zg-vLw" secondAttribute="bottom" constant="64" id="hPX-ra-zRO"/>
                                 <constraint firstAttribute="bottom" secondItem="X8n-fN-V05" secondAttribute="bottom" constant="20" id="nEH-vY-3VY"/>
+                                <constraint firstItem="YF5-Jp-CN4" firstAttribute="centerX" secondItem="3Nc-5D-qAw" secondAttribute="centerX" id="yQZ-vr-UUg"/>
                             </constraints>
                         </view>
                     </subviews>

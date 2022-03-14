@@ -13,8 +13,20 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var signInButton: UIButton!
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
     weak var delegate: LoginViewControllerDelegate?
+    
+    var isLoading: Bool = false {
+        didSet {
+            signInButton.isHidden = isLoading
+            if isLoading {
+                loadingIndicator.startAnimating()
+            } else {
+                loadingIndicator.stopAnimating()
+            }
+        }
+    }
     
     private let authService = ServiceLayer.shared.authService
     
@@ -31,9 +43,11 @@ class LoginViewController: UIViewController {
         else {
             return
         }
+        isLoading = true
         authService.signIn(username: username, password: password) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
+                self.isLoading = false
                 switch result {
                 case .failure(let error):
                     self.showErrorAlert(error: error)
