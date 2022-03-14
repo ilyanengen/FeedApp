@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     init(feedItem: FeedItem) {
         self.feedItem = feedItem
         super.init(nibName: nil, bundle: nil)
+        self.title = "Map"
     }
     
     required init?(coder: NSCoder) {
@@ -29,8 +30,6 @@ class MapViewController: UIViewController {
     }
     
     private func configureMapView() {
-        mapView.showsUserLocation = true
-        
         let annotation = MKPointAnnotation()
         annotation.title = feedItem.name
         annotation.coordinate = CLLocationCoordinate2D(
